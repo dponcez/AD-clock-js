@@ -8,7 +8,7 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <!-- Mobile Specific Metas -->
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>Analog - Digital Watch in JS</title>
+  <title>Analog - Digital Clock in JS</title>
   <!-- Fonts -->
   <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Abel&family=Play&display=swap'>
   <!-- CSS -->
@@ -17,81 +17,18 @@
 </head>
 <body>
   <div class='container'>
-    <div class="clock--base">
-      <!-- date container -->
-      <section class="date--container">
-        <div class="weeks--container">
-          <span class="day" style="--day: 0" data-day="sun">sun</span>
-          <span class="day" style="--day: 1" data-day="mon">mon</span>
-          <span class="day" style="--day: 2" data-day="tue">tue</span>
-          <span class="day" style="--day: 3" data-day="wed">wed</span>
-          <span class="day" style="--day: 4" data-day="thu">thu</span>
-          <span class="day" style="--day: 5" data-day="fri">fri</span>
-          <span class="day" style="--day: 6" data-day="sat">sat</span>
-        </div>
-        <div class="digit--container">
-          <span class="date" style="--date: 0" data-date="">1</span>
-          <span class="date" style="--date: 1" data-date="">2</span>
-          <span class="date" style="--date: 2" data-date="">3</span>
-          <span class="date" style="--date: 3" data-date="">4</span>
-          <span class="date" style="--date: 4" data-date="">5</span>
-          <span class="date" style="--date: 5" data-date="">6</span>
-          <span class="date" style="--date: 6" data-date="">7</span>
-          <span class="date" style="--date: 7" data-date="">8</span>
-          <span class="date" style="--date: 8" data-date="">9</span>
-          <span class="date" style="--date: 9" data-date="">10</span>
-          <span class="date" style="--date: 10" data-date="">11</span>
-          <span class="date" style="--date: 11" data-date="">12</span>
-          <span class="date" style="--date: 12" data-date="">13</span>
-          <span class="date" style="--date: 13" data-date="">14</span>
-          <span class="date" style="--date: 14" data-date="">15</span>
-          <span class="date" style="--date: 15" data-date="">16</span>
-          <span class="date" style="--date: 16" data-date="">17</span>
-          <span class="date" style="--date: 17" data-date="">18</span>
-          <span class="date" style="--date: 18" data-date="">19</span>
-          <span class="date" style="--date: 19" data-date="">20</span>
-          <span class="date" style="--date: 20" data-date="">21</span>
-          <span class="date" style="--date: 21" data-date="">22</span>
-          <span class="date" style="--date: 22" data-date="">23</span>
-          <span class="date" style="--date: 23" data-date="">24</span>
-          <span class="date" style="--date: 24" data-date="">25</span>
-          <span class="date" style="--date: 25" data-date="">26</span>
-          <span class="date" style="--date: 26" data-date="">27</span>
-          <span class="date" style="--date: 27" data-date="">28</span>
-          <span class="date" style="--date: 28" data-date="">29</span>
-          <span class="date" style="--date: 29" data-date="">30</span>
-          <span class="date" style="--date: 30" data-date="">31</span>
-        </div>
+    <div class="clock">
+      <!-- weekdays -->
+      <section class="weeks--container">
+        <div class="weeks absolute" data-weeks></div>
+        <div class="digit--container absolute" data-digit></div>
       </section>
       <!-- hands -->
-      <section class="hands">
-        <div class="hand hrs" style="--dial-color:hsl(204, 70%, 53%); --sz: 6rem" data-hours-marker></div>
-        <div class="hand mins" style="--dial-color: hsl(6, 63%, 46%); --sz: 7rem" data-minutes-marker></div>
-        <div class="hand secs" style="--dial-color: hsl(168, 76%, 36%); --sz: 8rem" data-seconds-marker></div>
-      </section>
+      <section class="hands absolute" data-hands></section>
       <!-- dials -->
-      <div class="absolute dials">
-        <span class="absolute dial" style="--i: 0">12</span>
-        <span class="absolute dial" style="--i: 1">1</span>
-        <span class="absolute dial" style="--i: 2">2</span>
-        <span class="absolute dial" style="--i: 3">3</span>
-        <span class="absolute dial" style="--i: 4">4</span>
-        <span class="absolute dial" style="--i: 5">5</span>
-        <span class="absolute dial" style="--i: 6">6</span>
-        <span class="absolute dial" style="--i: 7">7</span>
-        <span class="absolute dial" style="--i: 8">8</span>
-        <span class="absolute dial" style="--i: 9">9</span>
-        <span class="absolute dial" style="--i: 10">10</span>
-        <span class="absolute dial" style="--i: 11">11</span>
-      </div>
+      <section class="absolute dials" data-dials></section>
       <!-- format -->
-      <section class="format--container">
-        <div class="digit digit--hours" data-hours>00</div>
-        <span class="separator">:</span>
-        <div class="digit digit--minutes" data-minutes>00</div>
-        <span class="separator">:</span>
-        <div class="digit digit--seconds" data-seconds>00</div>
-      </section>
+      <section class="format--container absolute" data-format></section>
     </div>
   </div>
   <script src='js/main.js'></script>
