@@ -7,21 +7,11 @@ const initApp = () => {
   let minValue = 6;
   const indices = [12,1,2,3,4,5,6,7,8,9,10,11];
 
-  const selectors = {
-    dataWeeks: document.querySelector('[data-weeks]'),
-    dataDigit: document.querySelector('[data-digit]'),
-    dataHands: document.querySelector('[data-hands]'),
-    dataDials: document.querySelector('[data-dials]'),
-    dataFormat: document.querySelector('[data-format]'),
+  const selector = {
+    clockContainer: document.querySelector('.clock')
   }
 
-  const {
-    dataWeeks,
-    dataDigit,
-    dataHands,
-    dataDials,
-    dataFormat
-  } = selectors;
+  const { clockContainer } = selector
 
   const colors = {
     hMarkerColor: "hsl(201, 19%, 71%)",
@@ -35,36 +25,43 @@ const initApp = () => {
     sMarkerColor 
   } = colors;
 
-  dataWeeks.innerHTML += `
-    <div class='info--container absolute'>
-      <p class='info color' data-day>Sat</p>
+  const dials = indices.map(index => (
+    `<div class="dial absolute" style="--i: ${index}">
+      <span class="absolute">${index}</span>
     </div>
-  `;
-
-  dataDigit.innerHTML += `
-    <p class='date color' data-date>0</p>
-  `;
-
-  dataHands.innerHTML += `
-    <div class='absolute hand hrs' style='--dial-color: ${hMarkerColor}; --sz: 7rem' data-hours-maker></div>
-    <div class='absolute hand mins' style='--dial-color: ${mMarkerColor}; --sz: 8rem' data-minutes-maker></div>
-    <div class='absolute hand secs' style='--dial-color: ${sMarkerColor}; --sz: 9rem' data-seconds-maker></div>
-  `;
-
-  indices.map(index => {
-    dataDials.innerHTML += `
-      <div class='absolute dial' style='--i: ${index}'>
-        <span class='absolute'>${index}</span>
-      </div>
     `
-  });
+  ));
 
-  dataFormat.innerHTML += `
-    <p class="digit color digit--hours" data-hours>00</p>
-    <span class="separator color">:</span>
-    <p class="digit color digit--minutes" data-minutes>00</p>
-    <span class="separator color">:</span>
-    <p class="digit color digit--seconds" data-seconds>00</p>
+  clockContainer.innerHTML += `
+    <!-- weekdays -->
+    <section class="weeks--container">
+      <div class="weeks absolute flexbox" data-weeks>
+        <div class="info--container absolute flexbox">
+          <p class="info color" data-day>Sat</p>
+        </div>
+      </div>
+      <div class="digit--container absolute flexbox" data-digit>
+        <p class="date color" data-date>0</p>
+      </div>
+    </section>
+    <!-- hands -->
+    <section class="hands absolute flexbox" data-hands>
+      <div class="absolute hand hrs" style="--dial-color: ${hMarkerColor}; --sz: 7rem" data-hours-maker></div>
+      <div class="absolute hand mins" style="--dial-color: ${mMarkerColor}; --sz: 8rem" data-minutes-maker></div>
+      <div class="absolute hand secs" style="--dial-color: ${sMarkerColor}; --sz: 9rem" data-seconds-maker></div>
+    </section>
+    <!-- dials -->
+    <section class="absolute dials" data-dials>
+      ${ dials.join('') }
+    </section>
+    <!-- time format -->
+    <section class="format--container absolute flexbox" data-format>
+      <p class="digit color digit--hours" data-hours>00</p>
+      <span class="separator color">:</span>
+      <p class="digit color digit--minutes" data-minutes>00</p>
+      <span class="separator color">:</span>
+      <p class="digit color digit--seconds" data-seconds>00</p>
+    </section>
   `;
 
   const handleRotate = (element, value) => {
