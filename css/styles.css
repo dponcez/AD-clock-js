@@ -37,12 +37,7 @@ span {
   height: var(--svh)
 }
 
-.clock,
-.weeks,
-.hands,
-.info--container,
-.digit--container,
-.format--container {
+.flexbox {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,9 +91,9 @@ span {
 .color { color: var(--dark) }
 
 .digit--container {
-  width: calc(var(--pd) * 1.25);
+  width: calc(var(--pd) * 1.5);
   height: calc(var(--pd) * 1.25);
-  right: 14%;
+  right: 12%;
   transform: translateY(-50%);
   .date {
     font-size: var(--pd);
