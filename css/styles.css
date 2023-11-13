@@ -134,6 +134,7 @@ span {
     transform: translateY(0) rotate(0);
     background-color: var(--dial-color);
     border-radius: calc(var(--pd) * .5);
+    transition: transform 400ms ease;
     &::before,
     &::after {
       content: '';
