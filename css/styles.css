@@ -177,12 +177,13 @@ span {
   height: calc(var(--rd) * 1.035);
   z-index: 2;
   .dial {
-    inset: .25rem -.56rem;
+    inset: .25rem -.456rem;
     color: hsl(0, 3%, 69%);
     transform: rotate(calc(30deg * var(--i)));
     & span {
       transform: rotate(calc(-30deg * var(--i)))
     }
+    &:first-child { transform: translateX(-.75rem) }
     &:first-child,
     &:nth-child(4),
     &:nth-child(7),
