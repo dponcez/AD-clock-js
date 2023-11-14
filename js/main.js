@@ -69,6 +69,7 @@ const initApp = () => {
   }
 
   const timer = () => {
+
     const dataSelectors = {
       dataHoursMaker: document.querySelector("[data-hours-maker]"),
       dataMinutesMaker: document.querySelector("[data-minutes-maker]"),
@@ -91,8 +92,6 @@ const initApp = () => {
       dataSeconds
     } = dataSelectors;
 
-    let getCurrentHour = '';
-
     const weekdays = [
       'Sun',
       'Mon',
@@ -103,36 +102,35 @@ const initApp = () => {
       'Sat'
     ];
 
+    // Create date object constructor
     const CURRENT_DATE = new Date();
-    // Add to handleRotate function as a value
+
+    // Get the current time for analog clock
     const HOURS = CURRENT_DATE.getHours() * maxValue;
     const MINUTES = CURRENT_DATE.getMinutes() * minValue;
     const SECONDS = CURRENT_DATE.getSeconds() * minValue;
 
     const CURRENT_TIME = HOURS + MINUTES / halfValue;
 
-    // get the current time 
-    const HH = CURRENT_DATE.getHours();
-    const MM = CURRENT_DATE.getMinutes();
-    const SS = CURRENT_DATE.getSeconds();
+    // Get the current time for digital clock
+    const HOUR = CURRENT_DATE.getHours();
+    const MINS = CURRENT_DATE.getMinutes();
+    const SECS = CURRENT_DATE.getSeconds();
 
     const ACTUAL_DAY = CURRENT_DATE.getDay();
     const DAY_MONTH = CURRENT_DATE.getDate();
 
     const getCurrentDay = weekdays[ACTUAL_DAY];
 
-    if(HH > halfValue){
-      getCurrentHour = HH - halfValue
-    }
-
-    const getMins = (MM < decimal) ? '0' + MM: MM;
-    const getSecs = (SS < decimal) ? '0' + SS : SS;
+    const getCurrentHour = (HOUR > halfValue) ? (HOUR - halfValue) : HOUR
+    const getCurrentMins = (MINS < decimal) ? '0' + MINS: MINS;
+    const getCurrentSecs = (SECS < decimal) ? '0' + SECS : SECS;
 
     dataDay.innerHTML = getCurrentDay;
     dataDate.innerHTML = DAY_MONTH;
     dataHours.innerHTML = getCurrentHour;
-    dataMinutes.innerHTML = getMins;
-    dataSeconds.innerHTML = getSecs
+    dataMinutes.innerHTML = getCurrentMins;
+    dataSeconds.innerHTML = getCurrentSecs
 
     handleRotate(dataHoursMaker, CURRENT_TIME);
     handleRotate(dataMinutesMaker, MINUTES);
