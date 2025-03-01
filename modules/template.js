@@ -38,13 +38,13 @@ export const handleClock = () => {
   `;
 
   const timer = () => {
-    const dialMarker = {
+    const dialPointers = {
       hourIndicator: selector('[data-hours-marker]'),
       minutesIndicator: selector('[data-minutes-marker]'),
       secondsIndicator: selector('[data-seconds-marker]')
     }
 
-    const { hourIndicator, minutesIndicator, secondsIndicator } = dialMarker;
+    const { hourIndicator, minutesIndicator, secondsIndicator } = dialPointers;
 
     const CURRENT_DATE = new Date();
 
