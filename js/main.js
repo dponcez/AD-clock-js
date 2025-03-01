@@ -1,2 +1,5 @@
 import { handleClock } from "../modules/template.js";
-handleClock()
+import { currentTimeFormat } from "../modules/time_format.js";
+
+handleClock();
+currentTimeFormat()
