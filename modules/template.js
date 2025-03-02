@@ -1,7 +1,8 @@
 import { selector, handleRotate } from "../fns/custom_functions.js";
 import { weekInfoTemplate } from "./time_format.js";
+import { formatInfoTemplate } from "./time_format.js";
 
-export const handleClock = () => {
+export const displayAnalogClock = () => {
   let interval = 1000;
   let maxValue = 30;
   let halfValue = 12;
@@ -34,6 +35,9 @@ export const handleClock = () => {
     </section>
     <section class="absolute dials" data-dials>
       ${dials.join("")}
+    </section>
+    <section class="format--container absolute flexbox">
+      ${formatInfoTemplate}
     </section>
   `;
 
