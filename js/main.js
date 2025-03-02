@@ -1,5 +1,7 @@
-import { handleClock } from "../modules/template.js";
+import { displayAnalogClock } from "../modules/template.js";
 import { currentTimeFormat } from "../modules/time_format.js";
+import { displayDigitalClock } from "../modules/time_format.js";
 
-handleClock();
-currentTimeFormat()
+displayAnalogClock();
+currentTimeFormat();
+displayDigitalClock()
