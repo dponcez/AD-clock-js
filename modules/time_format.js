@@ -40,7 +40,7 @@ export const formatInfoTemplate = `
 export const displayDigitalClock = () => {
   const updateCurrentTime = () => {
     const CURRENT_TIME = new Date();
-    
+
     const htmlRefs = {
       dataHours: selector('[data-hours]'),
       dataMinutes: selector('[data-minutes]'),
@@ -53,7 +53,7 @@ export const displayDigitalClock = () => {
     const MINUTES = CURRENT_TIME.getMinutes();
     const SECONDS = CURRENT_TIME.getSeconds();
 
-    const GET_CURRENT_HOUR = (HOURS > 12) ? `0${(HOURS - 12)}` : HOURS;
+    const GET_CURRENT_HOUR = (HOURS < 10) ? `0${(HOURS - 12)}` : HOURS;
     const GET_CURRENT_MINS = (MINUTES < 10) ? `0${MINUTES}` : MINUTES;
     const GET_CURRENT_SECS = (SECONDS < 10) ? `0${SECONDS}` : SECONDS;
   
