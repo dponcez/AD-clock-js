@@ -20,7 +20,7 @@
 :where(html, body, p) { margin: 0 }
 :where(p, span) { line-height: 1; }
 :where(.weeks, .digit--container) { top: var(--rd) }
-:where(.info--container, .digit--container, .format--container) {
+:where(.info--container, .digit--container, .format--container, .date--container) {
   box-shadow: 0.25vmin 0.25vmin 0.25rem rgba(0,0,0,.35) inset, -0.25vmin -0.25vmin 0.25rem rgba(255,255,255,.35) inset;
   filter: opacity(.85) 
 }
@@ -57,6 +57,11 @@ body {
   width: inherit;
   height: inherit;
   position: relative;
+  .weeks {
+    flex-wrap: wrap;
+    width: 7rem;
+    gap: .75ch
+  }
 }
 
 .clock {
@@ -83,30 +88,31 @@ body {
 }
 
 .absolute { position: absolute; }
-.weeks { left: calc(100% - 6rem); }
 .color { color: var(--dark) }
 
-.digit--container {
-  width: calc(var(--pd) * 1.5);
-  height: calc(var(--pd) * 1.25);
-  right: 12%;
-  transform: translateY(-50%);
-  .date {
-    font-size: var(--pd);
+.weeks {
+  top: calc(var(--rd) * .8);
+  left: calc(100% * .6); 
+  .digit--container {
+    width: calc(var(--pd) * 1.5);
+    height: calc(var(--pd) * 1.25);
+    .date { font-size: var(--pd); }
+  }
+  .info--container {
+    width: calc(var(--sz) * .0875);
+    height: calc(var(--sz) * .0875);
+    border-radius: var(--rd);
+    z-index: 2;
+    .info { font: 500 .85rem var(--fnt-abel); }
+  }
+  .date--container {
+    width: var(--rd);
+    height: calc(var(--pd) * 1.2);
+    border-radius: .5ch;
+    .month { font-weight: 800; }
   }
 }
 
-.info--container {
-  width: calc(var(--sz) * .0875);
-  height: calc(var(--sz) * .0875);
-  border-radius: var(--rd);
-  z-index: 2;
-  .info {
-    font-size: .85rem;
-    font-family: var(--fnt-abel);
-    font-weight: 500;
-  }
-}
 
 .hands { 
   z-index: 3;
@@ -150,9 +156,7 @@ body {
       transform: translate(-30%, -.75rem);
     }
   }
-  .hrs {
-    &::before { height: 1.25rem; }
-  }
+  .hrs { &::before { height: 1.25rem; } }
   .mins {
     &::before { 
       height: 1.35rem;
