@@ -3,11 +3,14 @@
   --rd: 50%;
   --pd: 1.25rem;
   --svh: 100svh;
-  --bg: hsl(192 15% 94%);
+  --bg: #edf1f2;
   --blue: #3498db;
   --dark: #2c3e50;
   --fnt-play: 'Play', sans-serif;
   --fnt-abel: 'Abel', sans-serif;
+  --fnt-color: #002009;
+  --bg-color: #001930;
+  --yellow: #fafa04;
 }
 
 *,
@@ -15,17 +18,22 @@
 *::before { box-sizing: border-box; }
 
 :where(html, body, p) { margin: 0 }
-:where(p, span) {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: greyscale;
-  line-height: 1;
-}
+:where(p, span) { line-height: 1; }
 :where(.weeks, .digit--container) { top: var(--rd) }
 :where(.info--container, .digit--container, .format--container) {
   box-shadow: 0.25vmin 0.25vmin 0.25rem rgba(0,0,0,.35) inset, -0.25vmin -0.25vmin 0.25rem rgba(255,255,255,.35) inset;
   filter: opacity(.85) 
 }
 :where(.digit--container, .format--container) { border-radius: calc(var(--pd) * .25) }
+:where(.digit, .separator) {
+  font: 700 1.25rem/1 var(--fnt-play); 
+  display: inline-block;
+  color: var(--fnt-color);
+  paint-order: stroke fill;
+  word-spacing: .35ch;
+  letter-spacing: -.25ch;
+  -webkit-text-stroke: .015ch var(--yellow);
+}
 
 body {
   padding: 0;
@@ -185,11 +193,11 @@ body {
   bottom: 20%;
   transform: translate(-50%, -20%);
   z-index: 2;
-  .digit {
-    font-size: var(--pd);
-    font-weight: 500;
-  }
+  background: var(--bg-color);
+  box-shadow: 0 0 calc(.75ch * .25) calc(.75ch * .5) rgba(0,0,0,.35), 0 0 calc(.75ch * .05) calc(.75ch * .15) var(--yellow) inset;
   .digit--seconds {
     font-size: .75rem;
+    letter-spacing: .12ch;
+    -webkit-text-stroke: .0015ch #f6f7f8;
   }
 }
