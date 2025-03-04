@@ -4,13 +4,16 @@ const CURRENT_DATE = new Date();
 let interval = 1000;
 
 export const weekInfoTemplate = `
-  <div class="weeks absolute flexbox" data-weeks>
-    <div class="info--container absolute flexbox">
+  <div class="weeks absolute flexbox">
+    <div class="info--container flexbox">
       <p class="info color" data-day>Sat</p>
     </div>
-  </div>
-  <div class="digit--container absolute flexbox" data-digit>
-    <p class="date color" data-date>0</p>
+    <div class="digit--container flexbox">
+      <p class="date color" data-date>0</p>
+    </div>
+    <div class="date--container flexbox">
+      <p class="month color" data-month>march</p>
+    </div>
   </div>
 `;
 
