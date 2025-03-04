@@ -92,7 +92,7 @@ body {
 
 .weeks {
   top: calc(var(--rd) * .8);
-  left: calc(100% * .6); 
+  left: calc(100% * .58); 
   .digit--container {
     width: calc(var(--pd) * 1.5);
     height: calc(var(--pd) * 1.25);
@@ -106,7 +106,7 @@ body {
     .info { font: 500 .85rem var(--fnt-abel); }
   }
   .date--container {
-    width: var(--rd);
+    width: calc(100% * .8);
     height: calc(var(--pd) * 1.2);
     border-radius: .5ch;
     .month { font-weight: 800; }
