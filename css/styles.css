@@ -25,15 +25,7 @@
   filter: opacity(.85) 
 }
 :where(.digit--container, .format--container) { border-radius: calc(var(--pd) * .25) }
-:where(.digit, .separator) {
-  font: 700 1.25rem/1 var(--fnt-play); 
-  display: inline-block;
-  color: var(--fnt-color);
-  paint-order: stroke fill;
-  word-spacing: .35ch;
-  letter-spacing: -.25ch;
-  -webkit-text-stroke: .015ch var(--yellow);
-}
+:where(.digit, .separator, .date) { font: 700 1.25rem/1 var(--fnt-play); }
 
 body {
   padding: 0;
@@ -94,9 +86,9 @@ body {
   top: calc(var(--rd) * .8);
   left: calc(100% * .58); 
   .digit--container {
-    width: calc(var(--pd) * 1.5);
+    width: calc(var(--rd) * .7);
     height: calc(var(--pd) * 1.25);
-    .date { font-size: var(--pd); }
+    .date { color: var(--blue) }
   }
   .info--container {
     width: calc(var(--sz) * .0875);
@@ -197,11 +189,13 @@ body {
   bottom: 20%;
   transform: translate(-50%, -20%);
   z-index: 2;
-  background: var(--bg-color);
+  background: var(--fnt-color);
   box-shadow: 0 0 calc(.75ch * .25) calc(.75ch * .5) rgba(0,0,0,.35), 0 0 calc(.75ch * .05) calc(.75ch * .15) var(--yellow) inset;
+  .digit--hours { color: #728497; }
+  .digit--minutes { color: var(--blue) }
   .digit--seconds {
     font-size: .75rem;
     letter-spacing: .12ch;
-    -webkit-text-stroke: .0015ch #f6f7f8;
+    color: var(--yellow);
   }
 }
