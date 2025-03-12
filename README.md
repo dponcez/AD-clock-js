@@ -1,5 +1,7 @@
 # Analog - Digital Clock (AD Clock)
 
+<img src="./assets/clock.png">
+
 > **NOTE**: the **Analog - Digital Clock**, aka (*AD Clock*) is a simple project that allow us to work with the (DOM) **Document Object Model** using *JavaScript* and how we can manipulate it.
 
 ## Features
@@ -10,6 +12,8 @@
 
 ## Technologies Used
 ----
+
+__Developer tools__
 
 - [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
 - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
@@ -28,12 +32,12 @@ __Tool__
 
 1. Clone the repository:
   ```bash
-  git clone https://github.com/yourusername/analog-clock-js.git
+  git clone https://github.com/yourusername/AD-clock-js.git
   ```
 
 2. Navigate to the project directory:
   ```bash
-  cd analog-clock-js
+  cd AD-clock-js
   ```
 
 3. Open `index.html` in your web browser to view the clock.
@@ -67,6 +71,7 @@ __Tool__
 
 ```
 └── 📁AD-clock-js
+    └── 📁assets
     └── 📁css
         └── styles.css
     └── 📁fns
